@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>يومي مع الملك القدوس السلام</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink:     #1a1a2e;
+    --gold:    #c8a84b;
+    --gold-lt: #e8d5a3;
+    --sage:    #4a7c6f;
+    --sage-lt: #d4e8e2;
+    --sand:    #f5f0e8;
+    --pearl:   #fdfaf4;
+    --muted:   #6b6b7a;
+  }
+
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--sand);
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 24px 16px 48px;
+  }
+
+  /* ── header ── */
+  .header {
+    text-align: center;
+    padding: 40px 20px 32px;
+    position: relative;
+  }
+  .header::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 20px auto 0;
+  }
+  .header .eyebrow {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .header h1 {
+    font-family: 'Amiri', serif;
+    font-size: clamp(28px, 7vw, 44px);
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .header .sub {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* ── names strip ── */
+  .names-strip {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 28px 0;
+  }
+  .name-badge {
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-family: 'Amiri', serif;
+    font-size: 18px;
+    font-weight: 700;
+    border: 1.5px solid;
+  }
+  .badge-malik  { background: #fff8ee; border-color: var(--gold);  color: #8b6914; }
+  .badge-quddus { background: #eef6f4; border-color: var(--sage);  color: var(--sage); }
+  .badge-salam  { background: #f0f4ff; border-color: #6b7fc4;      color: #3d4f9f; }
+
+  /* ── section wrapper ── */
+  .section {
+    max-width: 680px;
+    margin: 0 auto 28px;
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .section-icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .icon-morning { background: #fff3d6; }
+  .icon-day     { background: #e8f4f1; }
+  .icon-crisis  { background: #fde8e8; }
+  .icon-night   { background: #e8eaf6; }
+
+  .section-title h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .section-title span.time {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+    margin-right: 4px;
+  }
+
+  /* ── card ── */
+  .card {
+    background: var(--pearl);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #e8e2d8;
+  }
+
+  /* ── step ── */
+  .step {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid #f0ebe0;
+    align-items: flex-start;
+  }
+  .step:last-child { border-bottom: none; padding-bottom: 0; }
+  .step:first-child { padding-top: 0; }
+
+  .step-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .num-gold  { background: var(--gold-lt); color: #7a5a00; }
+  .num-sage  { background: var(--sage-lt); color: var(--sage); }
+  .num-blue  { background: #dde3f7;        color: #3d4f9f; }
+  .num-night { background: #e8eaf6;        color: #3d4f9f; }
+
+  .step-body {}
+  .step-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .step-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .step-tag {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .tag-malik  { background: #fff3d6; color: #8b6914; }
+  .tag-quddus { background: #e8f4f1; color: var(--sage); }
+  .tag-salam  { background: #dde3f7; color: #3d4f9f; }
+
+  /* ── dua box ── */
+  .dua {
+    background: linear-gradient(135deg, #fffdf5, #f9f3e3);
+    border-right: 3px solid var(--gold);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 8px;
+    font-family: 'Amiri', serif;
+    font-size: 15px;
+    color: #5a4200;
+    line-height: 1.8;
+  }
+
+  /* ── crisis grid ── */
+  .crisis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 480px) {
+    .crisis-grid { grid-template-columns: 1fr; }
+  }
+  .crisis-card {
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid #e8e2d8;
+  }
+  .crisis-card.malik  { background: #fffbf0; }
+  .crisis-card.quddus { background: #f2faf8; }
+  .crisis-card.salam  { background: #f0f2fd; }
+  .crisis-card.all    { background: #fdf5ff; border-color: #d8c8e8; grid-column: span 2; }
+  @media (max-width: 480px) {
+    .crisis-card.all { grid-column: span 1; }
+  }
+
+  .crisis-trigger {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .crisis-action {
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  .crisis-arrow {
+    font-size: 11px;
+    color: var(--muted);
+    margin: 3px 0;
+  }
+
+  /* ── weekly ── */
+  .week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+  }
+  @media (max-width: 560px) {
+    .week-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .day-cell {
+    border-radius: 10px;
+    padding: 10px 6px;
+    text-align: center;
+    border: 1px solid #e8e2d8;
+    background: var(--pearl);
+  }
+  .day-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .day-icon { font-size: 18px; margin-bottom: 4px; }
+  .day-focus {
+    font-size: 10px;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .day-cell.malik-day  { border-top: 3px solid var(--gold); }
+  .day-cell.quddus-day { border-top: 3px solid var(--sage); }
+  .day-cell.salam-day  { border-top: 3px solid #6b7fc4; }
+  .day-cell.all-day    { border-top: 3px solid #9b6db5; }
+
+  /* ── summary ── */
+  .summary {
+    max-width: 680px;
+    margin: 0 auto 16px;
+    background: linear-gradient(135deg, #1a1a2e, #2a2a4e);
+    border-radius: 16px;
+    padding: 28px 24px;
+    color: white;
+    text-align: center;
+  }
+  .summary h3 {
+    font-family: 'Amiri', serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: var(--gold-lt);
+  }
+  .summary-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  .summary-name {
+    font-family: 'Amiri', serif;
+    font-size: 16px;
+    color: var(--gold);
+  }
+  .summary-effect {
+    font-size: 13px;
+    color: #c8d0f0;
+    font-weight: 300;
+  }
+  .summary-arrow { color: var(--gold); font-size: 14px; }
+
+  /* ── rules ── */
+  .rules {
+    max-width: 680px;
+    margin: 0 auto 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 480px) {
+    .rules { grid-template-columns: 1fr; }
+  }
+  .rule-card {
+    background: var(--pearl);
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid #e8e2d8;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .rule-icon { font-size: 20px; flex-shrink: 0; }
+  .rule-text { font-size: 12px; color: var(--muted); line-height: 1.6; }
+  .rule-text strong { color: var(--ink); font-size: 13px; display: block; margin-bottom: 2px; }
+
+  .divider {
+    max-width: 680px;
+    margin: 0 auto 28px;
+    height: 1px;
+    background: linear-gradient(to left, transparent, var(--gold-lt), transparent);
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="eyebrow">خطة يومية</div>
+  <h1>يومي مع الأسماء الثلاثة</h1>
+  <p class="sub">تطبيق عملي بسيط للحياة اليومية</p>
+</div>
+
+<!-- NAMES -->
+<div class="names-strip">
+  <span class="name-badge badge-malik">الملك</span>
+  <span class="name-badge badge-quddus">القدوس</span>
+  <span class="name-badge badge-salam">السلام</span>
+</div>
+
+<div class="divider"></div>
+
+<!-- MORNING -->
+<div class="section">
+  <div class="section-title">
+    <div class="section-icon icon-morning">🌅</div>
+    <h2>الصباح <span class="time">· أول ٥ دقائق قبل الهاتف</span></h2>
+  </div>
+  <div class="card">
+    <div class="step">
+      <div class="step-num num-gold">١</div>
+      <div class="step-body">
+        <div class="step-label">النية — دقيقة واحدة</div>
+        <div class="step-desc">ضع يدك على قلبك وقل:</div>
+        <div class="dua">اللهم أنت الملك وأنا مستخلفك، أنت القدوس وأنا أطلب النقاء، أنت السلام وأنا أطلب السلام</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num num-gold">٢</div>
+      <div class="step-body">
+        <div class="step-label">السؤال الواحد — دقيقة</div>
+        <div class="step-desc">اسأل نفسك سؤالاً واحداً فقط:<br>
+        <strong>ما الأمانة الأهم التي سأؤديها اليوم؟</strong><br>
+        صحتي؟ أسرتي؟ عملي؟ علاقة أحتاج إصلاحها؟</div>
+        <span class="step-tag tag-malik">الملك</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num num-sage">٣</div>
+      <div class="step-body">
+        <div class="step-label">الصمت — دقيقتان</div>
+        <div class="step-desc">لا تفكير، لا تخطيط، لا هاتف.<br>فقط اجلس ودع السلام يدخل قبل أن يدخل الضجيج.</div>
+        <span class="step-tag tag-salam">السلام</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num num-sage">٤</div>
+      <div class="step-body">
+        <div class="step-label">قرار النقاء — دقيقة</div>
+        <div class="step-desc">اختر شيئاً واحداً صغيراً ستُنقّيه اليوم:<br>
+        لسانك؟ نيتك؟ نظرك؟ قلبك من حقد معين؟</div>
+        <span class="step-tag tag-quddus">القدوس</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY -->
+<div class="section">
+  <div class="section-title">
+    <div class="section-icon icon-day">☀️</div>
+    <h2>خلال اليوم <span class="time">· كل ساعتين — ٣٠ ثانية فقط</span></h2>
+  </div>
+  <div class="card">
+    <div class="step">
+      <div class="step-num num-gold">١</div>
+      <div class="step-body">
+        <div class="step-label">هل أنا أحمل همَّ ما لا أملك؟</div>
+        <div class="step-desc">إن كان الجواب نعم... ذكّر نفسك: هذا وديعة لا ملك.</div>
+        <span class="step-tag tag-malik">الملك</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num num-sage">٢</div>
+      <div class="step-body">
+        <div class="step-label">هل نيتي نقية فيما أفعله الآن؟</div>
+        <div class="step-desc">لماذا أفعل هذا؟ لله أم لغيره؟</div>
+        <span class="step-tag tag-quddus">القدوس</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num num-night">٣</div>
+      <div class="step-body">
+        <div class="step-label">هل قلبي مرتاح أم فيه شيء؟</div>
+        <div class="step-desc">إن كان فيه شيء... ضع يدك على صدرك وقل: "السلام"</div>
+        <span class="step-tag tag-salam">السلام</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CRISIS -->
+<div class="section">
+  <div class="section-title">
+    <div class="section-icon icon-crisis">⚡</div>
+    <h2>عند المواقف الصعبة</h2>
+  </div>
+  <div class="crisis-grid">
+    <div class="crisis-card malik">
+      <div class="crisis-trigger">😰 عند القلق</div>
+      <div class="crisis-action">
+        <div class="crisis-arrow">← توقف</div>
+        <div class="crisis-arrow">← هل هذا ملكي أم وديعة؟</div>
+        <div class="crisis-arrow">← سلّمه لصاحبه</div>
+      </div>
+      <span class="step-tag tag-malik" style="margin-top:8px;display:inline-block">الملك</span>
+    </div>
+    <div class="crisis-card quddus">
+      <div class="crisis-trigger">😡 عند الغضب</div>
+      <div class="crisis-action">
+        <div class="crisis-arrow">← توقف</div>
+        <div class="crisis-arrow">← ابحث عن نقطة نقاء في الشخص</div>
+        <div class="crisis-arrow">← تصرف من السلام لا الغضب</div>
+      </div>
+      <span class="step-tag tag-quddus" style="margin-top:8px;display:inline-block">القدوس</span>
+    </div>
+    <div class="crisis-card salam">
+      <div class="crisis-trigger">😔 عند الخطأ</div>
+      <div class="crisis-action">
+        <div class="crisis-arrow">← لا تهرب من التأنيب</div>
+        <div class="crisis-arrow">← اسمعه وقرر تصرفاً واحداً</div>
+        <div class="crisis-arrow">← ثم أسقط الذنب</div>
+      </div>
+      <span class="step-tag tag-quddus" style="margin-top:8px;display:inline-block">القدوس</span>
+    </div>
+    <div class="crisis-card malik">
+      <div class="crisis-trigger">💔 عند الحزن</div>
+      <div class="crisis-action">
+        <div class="crisis-arrow">← "الملك القدوس قدّر هذا"</div>
+        <div class="crisis-arrow">← ماذا يريد مني من خلال هذا؟</div>
+      </div>
+      <span class="step-tag tag-malik" style="margin-top:8px;display:inline-block">الملك</span>
+    </div>
+  </div>
+</div>
+
+<!-- NIGHT -->
+<div class="section">
+  <div class="section-title">
+    <div class="section-icon icon-night">🌙</div>
+    <h2>المساء <span class="time">· ١٠ دقائق قبل النوم</span></h2>
+  </div>
+  <div class="card">
+    <div class="step">
+      <div class="step-num num-gold">١</div>
+      <div class="step-body">
+        <div class="step-label">محاسبة الأمانة — دقيقتان</div>
+        <div class="step-desc">كيف أديت الأمانة اليوم؟<br>
+        صحتي · وقتي · علاقاتي · عملي<br>
+        <em>لا عقاب، فقط رؤية صادقة.</em></div>
+        <span class="step-tag tag-malik">الملك</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num num-sage">٢</div>
+      <div class="step-body">
+        <div class="step-label">تطهير اليوم — دقيقتان</div>
+        <div class="step-desc">ما الذي أحتاج أن أطهره من يومي؟<br>
+        كلمة؟ نية؟ نظرة؟<br>
+        <em>اعترف بها لله وأسقطها.</em></div>
+        <span class="step-tag tag-quddus">القدوس</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num num-night">٣</div>
+      <div class="step-body">
+        <div class="step-label">سلام القلب — دقيقتان</div>
+        <div class="step-desc">هل في قلبك شيء على أحد؟<br>
+        <strong>قرر أن تسقطه الآن.</strong><br>
+        ليس لأنهم يستحقون، بل لأنك تستحق أن تنام في سلام.</div>
+        <span class="step-tag tag-salam">السلام</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num num-night">٤</div>
+      <div class="step-body">
+        <div class="step-label">الشكر والتسليم — دقيقتان</div>
+        <div class="step-desc">اذكر ثلاثة أشياء أديت فيها أمانة اليوم ولو صغيرة، ثم قل:</div>
+        <div class="dua">اللهم ما أحسنتُ فيه فمنك، وما قصّرت فيه فاغفره لي، وأنت الملك القدوس السلام</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num num-night">٥</div>
+      <div class="step-body">
+        <div class="step-label">النوم بسلام — دقيقتان</div>
+        <div class="step-desc">ضع يدك على قلبك وقل ثلاث مرات:</div>
+        <div class="dua">أنت الملك... أنت القدوس... أنت السلام</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WEEKLY -->
+<div class="section">
+  <div class="section-title">
+    <div class="section-icon icon-day">📅</div>
+    <h2>الخطة الأسبوعية</h2>
+  </div>
+  <div class="week-grid">
+    <div class="day-cell malik-day">
+      <div class="day-name">السبت</div>
+      <div class="day-icon">👑</div>
+      <div class="day-focus">اكتب ودائعك واعرفها</div>
+    </div>
+    <div class="day-cell malik-day">
+      <div class="day-name">الأحد</div>
+      <div class="day-icon">🎯</div>
+      <div class="day-focus">أحسن إدارة أمانة واحدة</div>
+    </div>
+    <div class="day-cell quddus-day">
+      <div class="day-name">الاثنين</div>
+      <div class="day-icon">🤍</div>
+      <div class="day-focus">يوم نقاء اللسان كامل</div>
+    </div>
+    <div class="day-cell quddus-day">
+      <div class="day-name">الثلاثاء</div>
+      <div class="day-icon">👁️</div>
+      <div class="day-focus">ابحث عن نقاء في أصعب شخص</div>
+    </div>
+    <div class="day-cell salam-day">
+      <div class="day-name">الأربعاء</div>
+      <div class="day-icon">🤝</div>
+      <div class="day-focus">تواصل مع من في قلبك عليه شيء</div>
+    </div>
+    <div class="day-cell salam-day">
+      <div class="day-name">الخميس</div>
+      <div class="day-icon">🌿</div>
+      <div class="day-focus">١٠ دقائق صمت وحدك</div>
+    </div>
+    <div class="day-cell all-day">
+      <div class="day-name">الجمعة</div>
+      <div class="day-icon">✨</div>
+      <div class="day-focus">مراجعة الأسبوع بالأسئلة الثلاثة</div>
+    </div>
+  </div>
+</div>
+
+<!-- RULES -->
+<div class="rules">
+  <div class="rule-card">
+    <div class="rule-icon">🌱</div>
+    <div class="rule-text">
+      <strong>لا تبدأ بكل شيء دفعة واحدة</strong>
+      خطوة واحدة وأضف تدريجياً
+    </div>
+  </div>
+  <div class="rule-card">
+    <div class="rule-icon">🔄</div>
+    <div class="rule-text">
+      <strong>الانقطاع ليس فشلاً</strong>
+      القدوس يفرح بالعودة أكثر من الاستمرار المتكلَّف
+    </div>
+  </div>
+  <div class="rule-card">
+    <div class="rule-icon">💎</div>
+    <div class="rule-text">
+      <strong>الهدف الشعور لا الطقوس</strong>
+      كلمة واحدة بوعي تساوي ألف كلمة بعادة
+    </div>
+  </div>
+  <div class="rule-card">
+    <div class="rule-icon">🌅</div>
+    <div class="rule-text">
+      <strong>لا تقيس النتيجة كل يوم</strong>
+      السلام يتراكم ببطء كالنور في الفجر
+    </div>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="summary">
+  <h3>الخلاصة</h3>
+  <div class="summary-row">
+    <span class="summary-name">الملك</span>
+    <span class="summary-arrow">←</span>
+    <span class="summary-effect">يُعلمك أن تُسلّم ما في يدك</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-name">القدوس</span>
+    <span class="summary-arrow">←</span>
+    <span class="summary-effect">يُعلمك أن تُنقّي ما في قلبك</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-name">السلام</span>
+    <span class="summary-arrow">←</span>
+    <span class="summary-effect">ما ستجده حين تفعل الاثنين</span>
+  </div>
+</div>
+
+</body>
+</html>
